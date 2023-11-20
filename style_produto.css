@@ -67,6 +67,7 @@ li a:hover {
     justify-content: space-between;
     flex-wrap: wrap;
     margin-top: 30px;
+    box-sizing: border-box;
 }
 
 /* Estilo de cada carro individual */
@@ -76,12 +77,16 @@ li a:hover {
     padding: 10px;
     text-align: center;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif!important;
+    box-sizing: border-box;
 }  
   
   /* Estilo da imagem do carro */
 .car img {
     width: 100%; /* Imagem ocupando toda a largura do bloco do carro */
-    height: 250px; /* Altura ajustável automaticamente para manter a proporção */
+    height: auto; /* Altura ajustável automaticamente para manter a proporção */
+    max-width: 100%;
+    max-height: 250px;
+    object-fit: contain;
 }
 
 .car-name {
