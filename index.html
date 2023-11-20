@@ -1,10 +1,28 @@
+<!--
+    ALUNO - Alberth Ronaldy Pereira Rosa
+    Universidade Positivo Ecoville.
+    Foi alterado e adicionado apenas no produto.html
+
+    A primeira alteração feita consiste na implementação de um evento Javascript,
+    os eventos mouseover e mouseout, esses eventos são usados para criar interações
+    de mouse personalizadas com as imagens/cards dos carros.
+
+    A segunda alteração feita consiste na implementação de um contador de visitas,
+    utilizando o armazenamento local (localStorage) para persistir os dados entre 
+    diferentes sessões do usuário. Ele pode ser alterado manualmente acessando a 
+    localStorage e alterando o valor para 0 (começo).
+    Portanto, sempre que a página é carregada pela primeira vez ou o armazenamento local
+    é limpo, o contador começa novamente a partir de 0.
+
+-->
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NavPage</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
     <div class="container">
@@ -16,7 +34,6 @@
                 <li><a href="clientes_cadastro.html">Cadastrar</a></li>
             </ul>
         </div>
-        
         <main>
             <div class="content">
                 <h1>CONCESSIONÁRIA LOREM</h1> 

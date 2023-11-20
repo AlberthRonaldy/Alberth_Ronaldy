@@ -87,6 +87,7 @@ li a:hover {
     max-width: 100%;
     max-height: 250px;
     object-fit: contain;
+    transition: opacity 0.3s ease-in-out;
 }
 
 .car-name {
@@ -192,7 +193,7 @@ p{
     font-size: 20.4px;
     margin-bottom: 30px;
 }
-  
+
   /* FOOTER */
 .rodape {
     display: flex;

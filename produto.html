@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style_produto.css" />
+    <link rel="stylesheet" href="./css/style_produto.css" />
     <title>Página Concessionária </title>
   </head>
   <body>
@@ -28,32 +28,32 @@
     </header>
     <main>
         <section class="car-list">
-            <div class="car">
+            <div class="car" id="car1">
                 <a href="#"><img src="img/carro 1.png" alt="Carro 1"></a>
                 <p class="car-name">Chevrolet Cruze</p>
                 <p class="car-price">R$ 50.000,00</p>
             </div>
-            <div class="car">
+            <div class="car" id="car2">
                 <a href="#"><img src="img/carro 2.png" alt="Carro 2"></a>
                 <p class="car-name">Chevrolet Onix</p>
                 <p class="car-price">R$ 40.000,00</p>
             </div>
-            <div class="car">
+            <div class="car" id="car3">
                 <a href="#"><img src="img/carro 3.png" alt="Carro 3"></a>
                 <p class="car-name">Chevrolet Camaro</p>
                 <p class="car-price">R$ 300.000,00</p>
             </div>
-            <div class="car">
+            <div class="car" id="car4">
                 <a href="#"><img src="img/carro 4.png" alt="Carro 4"></a>
                 <p class="car-name">Jeep Compass</p>
                 <p class="car-price">R$ 150.000,00</p>
             </div>
-            <div class="car">
+            <div class="car" id="car5">
                 <a href="#"><img src="img/carro 5.png" alt="Carro 5"></a>
                 <p class="car-name">Range Rover Evoque</p>
                 <p class="car-price">R$ 280.950,00</p>
             </div>
-            <div class="car">
+            <div class="car" id="car6">
                 <a href="#"><img src="img/carro 6.png" alt="Carro 6"></a>
                 <p class="car-name">Bmw X3</p>
                 <p class="car-price">R$ 450.950,00</p>
@@ -129,6 +129,7 @@
             <p>A concessionária Lorem Ipsum, localizado no Bom Retiro, em Curitiba, no estado do Paraná, oferecem uma linha completa para você comprar seu carro zero km e seminovos.</p>
         </section>
     </main>
+    <div id="contador-visitas">Esta página foi visitada <span id="numero-visitas">0</span> vezes.</div>
     <footer>
       <div class="rodape">
         <div>
@@ -205,5 +206,83 @@
         </div>
       </div>
     </footer>
+  <script>
+    // Função para manipular eventos de mouseover e mouseout
+    function handleMouseEvents(element, isMouseOver) {
+      var carImage = element.querySelector('img');
+      carImage.style.opacity = isMouseOver ? 0.7 : 1;
+    }
+  
+    // Adiciona eventos a todos os carros (no caso tenho 6 carros)
+    for (var i = 1; i <= 6; i++) {
+      var car = document.getElementById('car' + i);
+  
+      car.addEventListener('mouseover', function () {
+        handleMouseEvents(this, true);
+      });
+  
+      car.addEventListener('mouseout', function () {
+        handleMouseEvents(this, false);
+      });
+    }
+
+    // Função para obter ou inicializar o contador de visitas
+    function getVisitCount() {
+      // Verifica se há um contador de visitas armazenado localmente
+      if (localStorage.getItem('visitCount')) {
+        return parseInt(localStorage.getItem('visitCount'));
+      } else {
+        localStorage.setItem('visitCount', '0');
+        return 0;
+      }
+    }
+
+    // Função para atualizar e exibir o contador de visitas
+    function updateVisitCount() {
+      var visitCount = getVisitCount() + 1; // Incrementa o contador
+      localStorage.setItem('visitCount', visitCount.toString()); // Atualiza o contador no armazenamento local
+
+      var numeroVisitasElement = document.getElementById('numero-visitas');
+      if (numeroVisitasElement) {
+        numeroVisitasElement.textContent = visitCount;
+      }
+    }
+
+    // Chama a função de atualização ao carregar a página
+    document.addEventListener('DOMContentLoaded', function () {
+      updateVisitCount();
+    });
+
+    // Função para estilizar o número de visitas usando JavaScript
+    function styleVisitCounter() {
+      var contadorVisitas = document.getElementById('contador-visitas');
+
+      //CSS
+      if (contadorVisitas) {
+        contadorVisitas.style.textAlign = 'center';
+        contadorVisitas.style.margin = '20px auto';
+        contadorVisitas.style.padding = '15px';
+        contadorVisitas.style.backgroundColor = '#1d1d1d';
+        contadorVisitas.style.color = 'white';
+        contadorVisitas.style.borderRadius = '5px';
+        contadorVisitas.style.width = '600px';
+      }
+    }
+
+    function styleVisitNumber() {
+      var numeroVisitas = document.getElementById('numero-visitas');
+
+      //CSS
+      if (numeroVisitas) {
+        numeroVisitas.style.fontWeight = 'bold';
+        numeroVisitas.style.fontSize = '18px';
+        numeroVisitas.style.color = '#e1a72c';
+      }
+    }
+    // Chama as funções que faz a estilização do contador
+    styleVisitNumber();
+    styleVisitCounter()
+
+  </script>
   </body>
 </html>
